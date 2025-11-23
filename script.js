@@ -6,23 +6,11 @@
   if(saved === "dark") root.classList.add("dark");
 })();
 
-
-
-
 function toggleTheme(){
   const root = document.documentElement;
   root.classList.toggle("dark");
-
-  const sun = document.getElementById("icon-sun");
-  const moon = document.getElementById("icon-moon");
-
-  if(root.classList.contains("dark")){
-    sun.style.display = "none";
-    moon.style.display = "inline";
-  } else {
-    sun.style.display = "inline";
-    moon.style.display = "none";
-  }
+  localStorage.setItem("ctd-theme", root.classList.contains("dark") ? "dark" : "light");
+  renderThemeLabel();
 }
 
 function renderThemeLabel(){
@@ -70,21 +58,3 @@ document.addEventListener("DOMContentLoaded", () => {
     if(a.getAttribute("href") === path) a.classList.add("active");
   });
 });
-
-function toggleNav(){
-  const nav = document.getElementById("navLinks");
-  nav.classList.toggle("open");
-}
-
-// Auto detect correct path for SVG even in subfolders
-function getSVG(path){
-  // cek apakah halaman berada di subfolder
-  const depth = window.location.pathname.split("/").length;
-  return depth > 2 ? "../img/" + path : "img/" + path;
-}
-
-document.getElementById("icon-sun").src  = getSVG("sun.svg");
-document.getElementById("icon-moon").src = getSVG("moon.svg");
-
-
-
