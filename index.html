@@ -14,14 +14,8 @@
     <header>
   <div class="container navbar">
 
-    <div class="nav-row">
-      <div class="theme-toggle" onclick="toggleTheme()">
-        <img id="icon-sun" width="20" alt="Light mode">
-        <img id="icon-moon" width="20" alt="Dark mode" style="display:none;">
-      </div>
-    </div>
 
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="guide.html">Guide</a>
       <a href="strategies.html">Strategies</a>
@@ -32,6 +26,9 @@
       <a href="faq.html">FAQ</a>
     </nav>
 
+    <div class="theme-toggle" onclick="toggleTheme()">
+      Mode: <span data-theme-label>Light</span>
+    </div>
   </div>
 </header>
 
