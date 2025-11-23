@@ -9,8 +9,17 @@
 function toggleTheme(){
   const root = document.documentElement;
   root.classList.toggle("dark");
-  localStorage.setItem("ctd-theme", root.classList.contains("dark") ? "dark" : "light");
-  renderThemeLabel();
+
+  const sun = document.getElementById("icon-sun");
+  const moon = document.getElementById("icon-moon");
+
+  if(root.classList.contains("dark")){
+    sun.style.display = "none";
+    moon.style.display = "inline";
+  } else {
+    sun.style.display = "inline";
+    moon.style.display = "none";
+  }
 }
 
 function renderThemeLabel(){
