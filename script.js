@@ -72,3 +72,14 @@ function toggleNav(){
   const nav = document.getElementById("navLinks");
   nav.classList.toggle("open");
 }
+
+// Auto detect correct path for SVG even in subfolders
+function getSVG(path){
+  // cek apakah halaman berada di subfolder
+  const depth = window.location.pathname.split("/").length;
+  return depth > 2 ? "../img/" + path : "img/" + path;
+}
+
+document.getElementById("icon-sun").src  = getSVG("sun.svg");
+document.getElementById("icon-moon").src = getSVG("moon.svg");
+
