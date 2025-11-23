@@ -495,3 +495,21 @@ main, header, footer{ position:relative; z-index:1; }
     font-size: .9rem;
   }
 }
+
+/* ====== FIX OVERLAP TAG vs TITLE (MOBILE HARD FIX) ====== */
+@media (max-width: 720px){
+
+  /* tag jadi elemen normal (ngambil ruang) */
+  .section .tag{
+    position: static !important;   /* lepas dari absolute */
+    display: inline-block !important;
+    margin: 0 0 10px 0 !important; /* jarak bawah biar aman */
+    z-index: auto !important;
+    box-shadow: 3px 3px 0 var(--border);
+  }
+
+  /* padding-top balik normal karena tag udah ngasih ruang sendiri */
+  .section{
+    padding-top: 16px !important;
+  }
+}
