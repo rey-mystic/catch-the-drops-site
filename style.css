@@ -463,3 +463,35 @@ main, header, footer{ position:relative; z-index:1; }
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ===== FIX TAG vs TITLE OVERLAP ===== */
+
+/* semua section yang punya tag: kasih ruang atas */
+.section {
+  padding-top: 44px; /* sebelumnya 22px, ini buat ruang label */
+}
+
+/* tag tetap nempel di border atas */
+.section .tag{
+  top: -12px;    /* boleh -10px kalau mau lebih turun */
+  left: 14px;
+  z-index: 2;
+}
+
+/* turunin judul pertama biar aman saat zoom */
+.section > h1:first-of-type,
+.section > h2:first-of-type{
+  margin-top: 0;        /* reset */
+  padding-top: 2px;     /* kecil aja biar gak mepet */
+}
+
+/* versi HP: ruang atas sedikit lebih kecil biar gak kebanyakan */
+@media (max-width: 720px){
+  .section{
+    padding-top: 38px;
+  }
+  .section .tag{
+    top: -10px;
+    font-size: .9rem;
+  }
+}
