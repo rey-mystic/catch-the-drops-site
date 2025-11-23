@@ -6,6 +6,33 @@
   if(saved === "dark") root.classList.add("dark");
 })();
 
+// set SVG path otomatis (root vs subfolder)
+function getSVG(file){
+  const isSubfolder = window.location.pathname.includes("/airdrops/");
+  return isSubfolder ? `../img/${file}` : `img/${file}`;
+}
+
+// pas halaman selesai load, baru set src
+document.addEventListener("DOMContentLoaded", () => {
+  const sun = document.getElementById("icon-sun");
+  const moon = document.getElementById("icon-moon");
+  if(!sun || !moon) return;
+
+  sun.src = getSVG("sun.svg");
+  moon.src = getSVG("moon.svg");
+
+  // sync icon sesuai theme saat load
+  const root = document.documentElement;
+  if(root.classList.contains("dark")){
+    sun.style.display = "none";
+    moon.style.display = "inline";
+  } else {
+    sun.style.display = "inline";
+    moon.style.display = "none";
+  }
+});
+
+
 function toggleTheme(){
   const root = document.documentElement;
   root.classList.toggle("dark");
