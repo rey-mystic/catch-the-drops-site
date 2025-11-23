@@ -9,9 +9,20 @@
 <body>
 <header>
   <div class="container navbar">
+    
+    <!-- top row (mobile) -->
+    <div class="nav-row">
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">
+        ☰ Menu
+      </button>
 
+      <div class="theme-toggle" onclick="toggleTheme()">
+        Mode: <span data-theme-label>Light</span>
+      </div>
+    </div>
 
-    <nav class="nav-links">
+    <!-- links -->
+    <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="guide.html">Guide</a>
       <a href="strategies.html">Strategies</a>
@@ -22,9 +33,6 @@
       <a href="faq.html">FAQ</a>
     </nav>
 
-    <div class="theme-toggle" onclick="toggleTheme()">
-      Mode: <span data-theme-label>Light</span>
-    </div>
   </div>
 </header>
 
