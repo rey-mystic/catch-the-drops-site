@@ -58,3 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if(a.getAttribute("href") === path) a.classList.add("active");
   });
 });
+
+function toggleNav(){
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("open");
+}
